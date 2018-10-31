@@ -4,6 +4,9 @@ body{
 body > header{
     text-align: center;
 }
+img{
+    width: 100%;
+}
 header{
     margin:0;
 }

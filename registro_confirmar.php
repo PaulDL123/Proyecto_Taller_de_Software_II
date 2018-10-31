@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Diseñar</title>
     <link rel="stylesheet" href="style/estilos.css">
+    <link rel="stylesheet" href="style/formulario_estilo.css">
 </head>
 <body>
+    <?php include('login.php') ?>
     <?php include('partes/header.php') ?>
     <?php include('partes/navegador.php') ?>
 
