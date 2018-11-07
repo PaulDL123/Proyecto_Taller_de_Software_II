@@ -6,7 +6,7 @@ $password = $_POST["password"];
 $retorno = $_POST["retorno"];
 #Proceso
 
-#$password = sha1($password);
+$password = sha1($password);
 $db = new PDO('mysql:host=localhost;dbname=proyecto_taller_software; charset=utf8mb4', 'root', '');
 $stmt = $db->query("SELECT * FROM usuarios WHERE (usuario = '$usuario' OR correo='$usuario') AND password = '$password'");
 $usuarios = $stmt->fetchAll();

@@ -1,0 +1,16 @@
+#cabecera{
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    font-size: 16px;
+}
+#cabecera li a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+#cabecera li{
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: bold;
+}
