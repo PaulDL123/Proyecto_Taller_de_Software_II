@@ -26,7 +26,8 @@ $productos = $stmt->fetchAll();
     <?php include('partes/navegador.php') ?>
 
     <?php if(isset($_SESSION["usuario"])) { if(($_SESSION["usuario"]=="Paul1")){ ?>
-    <p><a href="agregar_prod.php">Agregar Producto</a></p>
+    <li><a href="agregar_prod.php">Agregar producto</a></li>
+    <li><a href="operaciones_prod.php">Editar producto</a></li>
     <?php }}?>
 
 
