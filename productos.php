@@ -1,6 +1,9 @@
 <?php
 
 session_start();
+$db = new PDO('mysql:host=localhost;dbname=proyecto_taller_software; charset=utf8mb4', 'root', '');
+$stmt = $db->query("SELECT * FROM productos");
+$productos = $stmt->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -22,6 +25,29 @@ session_start();
     <?php include('partes/header.php') ?>
     <?php include('partes/navegador.php') ?>
 
+    <?php if(isset($_SESSION["usuario"])) { if(($_SESSION["usuario"]=="Paul1")){ ?>
+    <p><a href="agregar_prod.php">Agregar Producto</a></p>
+    <?php }}?>
+
+
+    <section>
+        <h1>Disfruta de todos nuestros productos</h1>    
+        <?php foreach ($productos as $p) {?>
+
+        <div>
+            <div>
+                <img src="data:image/jpg;base64,<?php echo base64_encode($p["imagen"]);?>" >
+            </div>
+            <div>
+                <span><?php echo $p["nombre"] ?></span>
+            </div>
+            <div>
+                <span>$<?php echo $p["precio"] ?></span>
+            </div>
+        </div>
+
+        <?php } ?>
+    </section>
     
 
     <?php include('partes/footer.php') ?>
