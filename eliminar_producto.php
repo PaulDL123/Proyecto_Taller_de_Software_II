@@ -10,6 +10,6 @@ $stmt = $db->query("DELETE FROM productos WHERE id_producto = '$id'");
 
 #Salida
 
-header('Location: productos.php')
+header('Location: operaciones_prod.php')
 
 ?>
