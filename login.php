@@ -9,7 +9,7 @@
     
     <?php } else { ?>
     <form id="ingreso" action="login_procesar.php" method="post">
-        <input type="hidden" name="retorno" value="<?php echo basename($_SERVER["SCRIPT_FILENAME"]) ?>">
+        <input type="hidden" name="retorno" value="<?php echo pathinfo($_SERVER['REQUEST_URI'])['basename']; ?>">
         <div>
             <input type="text" name="usuario" placeholder="Ingrese su usuario o correo" required>
         </div>

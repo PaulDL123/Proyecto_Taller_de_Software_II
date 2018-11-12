@@ -1,0 +1,36 @@
+#nombre{
+    border-bottom: solid 1px #ccc;
+}
+#prod{
+    width: 80%;
+    margin: 0 10%;
+}
+#imagen{
+    float: left;
+    width: 40%;
+}
+#info{
+    margin-left: 40%;
+}
+#down{
+    margin: 20px 10px;
+}
+#info #desc{
+    margin-left: 20px;
+    float:left;
+    width: 60%;
+}
+#info #precio{
+    margin-left: 60%;
+}
+#precio #precio1{
+    color: #ea2840;
+    font-size: 14px;
+    font-family: "Helvetica Neue","Segoe UI",Lucida,Arial,sans-serif;
+}
+#precio #precio2{
+    color: #ea2840;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "Helvetica Neue","Segoe UI",Lucida,Arial,sans-serif;
+}

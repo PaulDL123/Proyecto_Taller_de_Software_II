@@ -2,7 +2,7 @@
 
 session_start();
 $db = new PDO('mysql:host=localhost;dbname=proyecto_taller_software; charset=utf8mb4', 'root', '');
-$stmt = $db->query("SELECT * FROM productos");
+$stmt = $db->query("SELECT * FROM productos ORDER BY id_producto DESC");
 $productos = $stmt->fetchAll();
 
 ?>
@@ -23,7 +23,7 @@ $productos = $stmt->fetchAll();
     <?php include('partes/header.php') ?>
     <?php include('partes/navegador.php') ?>
 
-    <table style="width: 100%; border-collapse: collapse;" border="1">
+    <table style="width: 60%; border-collapse: collapse; margin:10px 20%; text-align:center;" border="1">
         <tr>
             <th>Imagen</th>
             <th>Nombre</th>
@@ -38,7 +38,7 @@ $productos = $stmt->fetchAll();
         <?php } ?>
         <tr>
         <?php foreach ($productos as $u) { ?>
-            <td><img src="data:image/jpg;base64,<?php echo base64_encode($u["imagen"])?>" ></td>
+            <td><img src="data:image/jpg;base64,<?php echo base64_encode($u["imagen"])?>" style =" width:200px"></td>
             <td><?php echo $u["nombre"] ?></td>
             <td><?php echo $u["precio"] ?></td>
             <td style="text-align: center" style="display: flex;">

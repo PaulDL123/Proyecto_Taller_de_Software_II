@@ -1,5 +1,5 @@
 <?php
 session_start();
 unset($_SESSION["usuario"]);
-header("Location: index.php");
+header("Location: productos.php");
 ?>

@@ -11,12 +11,16 @@ $db = new PDO('mysql:host=localhost;dbname=proyecto_taller_software; charset=utf
 $stmt = $db->query("SELECT * FROM usuarios WHERE (usuario = '$usuario' OR correo='$usuario') AND password = '$password'");
 $usuarios = $stmt->fetchAll();
 
+
+
 $validacion = false;
 if (count($usuarios) == 1) {
     # Datos correctos
     $validacion = true;
     session_start();
-    $_SESSION["usuario"]= $usuario;
+    $_SESSION["usuario"]=$usuario;
+    $_SESSION["id"] = $id;
+
 }
 #Salida
 
