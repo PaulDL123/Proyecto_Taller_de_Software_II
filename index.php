@@ -21,7 +21,7 @@ session_start();
     <?php include('partes/header.php') ?>
     <?php include('partes/navegador.php') ?>
 
-    <section style="width: 70%; margin: 20px 15%;">
+    <section style="width: 70%; margin: 20px 15%; text-align:justify;">
         <h1>Nosotros</h1>
 
         <p>Fundada en el año 1969 y dedicada a la producción de muebles de madera, nos hemos convertido rápidamente en la principal proveedora de muebles para las más importantes cadenas de tiendas por departamentos del país.</p>
@@ -29,14 +29,14 @@ session_start();
         
         <h1>Nuestros servicios</h1>
         
-        <div style="display:flex; height: 400px; margin: 0 auto;">
+        <div style="display:flex; height: 400px; margin: 0 auto; justify-content: space-around; text-align:center;">
             <div style="width: 400px;">
                 <img src="accesorios/armado de muebles.png" style="width: 80%; heigth: 200px; margin: 5%;">
-                <p>Armado de muebles</p>
+                <h4>Armado de muebles</h4>
             </div>
             <div style="width: 400px;">
                 <img src="accesorios/diseño-muebles.jpg" style="width: 80%; height:214px; margin: 5%;">
-                <p>Diseño de muebles</p>
+                <h4>Diseño de muebles</h4>
             </div>
             
         </div>

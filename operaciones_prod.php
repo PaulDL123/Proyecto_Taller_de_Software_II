@@ -14,16 +14,19 @@ $productos = $stmt->fetchAll();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inicio</title>
     <?php include'links.html' ?>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
     <?php include('login.php') ?>
     <?php if(isset($_GET["error"])) { ?>
     <p style="color: red; background-color: black; margin:0; text-align: right; padding: 0 350px;">Error, datos no válidos</p>
     <?php } ?>
-    <?php include('partes/header.php') ?>
     <?php include('partes/navegador.php') ?>
 
-    <table style="width: 60%; border-collapse: collapse; margin:10px 20%; text-align:center;" border="1">
+    <table class="table" style="width: 60%; border-collapse: collapse; margin:10px 20%; text-align:center;">
         <tr>
             <th>Imagen</th>
             <th>Nombre</th>
@@ -47,10 +50,6 @@ $productos = $stmt->fetchAll();
                     <button type="submit">Borrar</button>
                 </form>
 
-                <form action="editar_producto.php" method="GET">
-                    <input type="hidden" name="id_producto" value="<?php echo $u["id_producto"] ?>">
-                    <button type="submit">Editar</button>
-                </form>
             </td>
         </tr>
         <?php } ?>

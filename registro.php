@@ -21,33 +21,33 @@ session_start();
     <?php } ?>
 
     
-    <?php include('partes/header.php') ?>
+
     <?php include('partes/navegador.php') ?>
     <section id="contenedor_padre">
         <h1>Formulario de registro de usuario</h1>
         <form action="registro_procesar.php" method="post">
-            <div>
+            <div class="form-group">
                 Nombres: <br>
-                <input type="text" name="nombres" required>
+                <input class="form-control" type="text" name="nombres" placeholder="Ingrese sus nombres" required>
             </div>
-            <div>
+            <div class="form-group">
                 Apellidos: <br>
-                <input type="text" name="apellidos" required>
+                <input class="form-control" type="text" name="apellidos" placeholder="Ingrese sus apellidos" required>
             </div>
-            <div>
+            <div class="form-group">
                 Usuario: <br>
-                <input type="text" name="usuario" required>
+                <input class="form-control" type="text" name="usuario" placeholder="Ingrese su usuario" required>
             </div>
-            <div>
+            <div class="form-group">
                 Correo: <br>
-                <input type="email" name="email" required>
+                <input class="form-control" type="email" name="email" placeholder="Ingrese correo" required>
             </div>    
-            <div>
+            <div class="form-group">
                 Contraseña: <br>
-                <input type="password" name="password" required>
+                <input class="form-control" type="password" name="password" placeholder="Ingrese su contraseña" required>
             </div>
             <div>
-                <button type="submit">Enviar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
         </form>
     </section>

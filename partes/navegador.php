@@ -6,7 +6,7 @@
         <li><a href="pedidos_admin.php">Lista de pedidos</a></li>
         <?php }}?>
         <?php if(isset($_SESSION["usuario"])) {?>
-        <li><a href="logout.php">Cerrar Sesión (<?php echo ($_SESSION["usuario"]) ?>)</a></li>
+        <li><a href="logout.php">Cerrar Sesión</a></li>
         <?php } else { ?>
         <li><a href="registro.php">Registrarse</a></li>
         <?php } ?>

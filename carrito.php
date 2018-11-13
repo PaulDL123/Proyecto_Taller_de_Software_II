@@ -1,6 +1,16 @@
 <?php
 
 session_start();
+$user = $_SESSION['usuario'];
+
+$db = new PDO('mysql:host=localhost;dbname=proyecto_taller_software; charset=utf8mb4', 'root', '');
+$stmt = $db->query("SELECT * FROM usuarios WHERE usuario = '$user'");
+$usuarios = $stmt->fetchObject();
+
+$prod_user = $usuarios->id;
+$stmt1 = $db->query("SELECT * FROM carrito WHERE idusuario = '$prod_user'");
+$prod_carrito = $stmt1->fetchAll();
+
 
 ?>
 <!DOCTYPE html>
@@ -11,6 +21,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inicio</title>
     <?php include'links.html' ?>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body>
     <?php include('login.php') ?>
@@ -20,7 +31,44 @@ session_start();
     
     <?php include('partes/navegador.php') ?>
     <section id="contenedor_padre">
+        <section id="izq">
+            <h3>Carrito de compras</h3>
 
+            <?php foreach($prod_carrito as $pc){ ?>
+
+            <div class="prod_carrito">
+                <div class="desc_prod">
+                    <div class="imag_prod">
+                        <img src="data:image/jpg;base64,<?php echo base64_encode($pc["imagen"]);?>">
+                    </div>
+                    <div class="datos_prod">
+                        <div class="nombre_prod">
+
+                        </div>
+                        <div class="extra_prod">
+                            <div class="precio_prod">
+
+                            </div>
+                            <div class="comentario">
+
+                            </div>
+                            <div class="cantidad">
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="precio">
+
+                </div>
+            </div>
+
+            <?php } ?>
+        </section>
+        <section id="der">
+
+        </section>
     </section>
     
 

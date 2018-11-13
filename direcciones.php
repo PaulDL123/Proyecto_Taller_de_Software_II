@@ -41,29 +41,9 @@ $usuarios = $stmt->fetchObject();
             </div>
         </section>
         <section id="der">
-            <h1>MIS DATOS PERSONALES</h1>
+            <h1>MIS DIRECCIONES</h1>
             <div>
-                <form action="">
-                    <div class="form-group">
-                        Nombres: <br>
-                        <input class="form-control" type="text" name="nombres" value="<?php echo "$usuarios->nombres" ?>" required>
-                    </div>
-                    <div class="form-group">
-                        Apellidos: <br>
-                        <input class="form-control" type="text" name="apellidos" value="<?php echo "$usuarios->apellidos" ?>" required>
-                    </div>
-                    <div class="form-group">
-                        Usuario: <br>
-                        <input class="form-control" type="text" name="usuario" value="<?php echo "$usuarios->usuario" ?>" required>
-                    </div>
-                    <div class="form-group">
-                        Correo: <br>
-                        <input class="form-control" type="email" name="email" value="<?php echo "$usuarios->correo" ?>" required>
-                    </div>    
-                    <div>
-                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                    </div>
-                </form>
+                
             </div>
         </section>
     </section>

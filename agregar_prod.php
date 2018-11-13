@@ -17,28 +17,28 @@ session_start();
     <?php if(isset($_GET["error"])) { ?>
     <p style="color: red; background-color: black; margin:0; text-align: right; padding: 0 350px;">Error, datos no válidos</p>
     <?php } ?>
-    <?php include('partes/header.php') ?>
     <?php include('partes/navegador.php') ?>
+
     <section id="contenedor_padre">
         <form action="agregar_procesar.php" method="post" enctype="multipart/form-data">
-            <div>
+            <div class="form-group">
                 Nombre:
-                <input type="text" name="nombre">
+                <input class="form-control" type="text" name="nombre">
             </div>
-            <div>
+            <div class="form-group">
                 Precio:
-                <input type="float" name="precio">
+                <input class="form-control" type="float" name="precio">
             </div>
-            <div>
+            <div class="form-group">
                 Descripción:
-                <textarea name="descripcion" cols="30" rows="10"></textarea>
+                <textarea class="form-control" name="descripcion" cols="30" rows="10"></textarea>
             </div>
-            <div>
+            <div class="form-group">
                 Imagen:
-                <input type="file" name="img" accept="image/*">
+                <input class="form-control" type="file" name="img" accept="image/*">
             </div>
             <div>
-                <button type="submit">Enviar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
         </form>
     </section>

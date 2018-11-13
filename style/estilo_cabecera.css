@@ -17,17 +17,17 @@
 
 /* Estilo del fomulario de la cabecera */
 
-#ingreso div > input{
+.form-inline div > input{
     height: 30px;
-    width: 200px;
+    width: 300px;
     padding: 5px;
     box-sizing: border-box;
 }
-#ingreso div{
-    width: 210px;
+.form-inline div{
+    width: 200px;
     text-align: center;
 }
-#ingreso{
+.form-inline{
     display: flex;
     justify-content: flex-end;
     padding: 10px 0;
@@ -36,6 +36,17 @@
     background-color: #000;
     height: 50px;
 }
-form input, form button{
-    
+.form-inline button{
+    margin: 0 20px;
+}
+
+/* Estilo del footer */
+
+#footer{
+    height: 80px;
+    background-color: #666;
+    padding: 10px 20%;
+    margin-top: 40px;
+    color: #fff;
+    text-align: center;
 }

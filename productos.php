@@ -5,6 +5,12 @@ $db = new PDO('mysql:host=localhost;dbname=proyecto_taller_software; charset=utf
 $stmt = $db->query("SELECT * FROM productos ORDER BY id_producto DESC");
 $productos = $stmt->fetchAll(); 
 
+if(isset($_SESSION['usuario'])){
+    $user = $_SESSION['usuario'];
+    $stmt = $db->query("SELECT * FROM usuarios WHERE usuario = '$user'");
+    $usuarios = $stmt->fetchObject();
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,12 +33,7 @@ $productos = $stmt->fetchAll();
     <?php include('partes/header.php') ?>
     <?php include('partes/navegador.php') ?>
 
-
     <section id="contenedor_padre">
-
-        <section id="filtros">
-            <p></p>
-        </section>
 
         <section id="productos">
             
@@ -40,14 +41,14 @@ $productos = $stmt->fetchAll();
                 <h1>Disfruta de todos nuestros productos</h1>
             </section>
 
-            <?php if(isset($_SESSION["usuario"])) { if(($_SESSION["usuario"]=="Paul1")){ ?>
-                    <div>
+            <?php if(isset($_SESSION["usuario"])) { if(($usuarios->tipo)=="administrador"){ ?>
+                    <div id = "botones">
                         <form action="agregar_prod.php">
-                            <button type submit>Agregar nuevo producto</button>
+                            <button type="submit" class="btn btn-success" data-dismiss="modal">Agregar nuevo producto</button>
                         </form>
 
                         <form action="operaciones_prod.php">
-                            <button type submit>Editar productos</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">Eliminar productos</button>
                         </form>
                     </div>
             <?php }}?>
