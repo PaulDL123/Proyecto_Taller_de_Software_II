@@ -5,19 +5,13 @@ $user = $_SESSION['usuario'];
 
 $db = new PDO('mysql:host=localhost;dbname=proyecto_taller_software; charset=utf8mb4', 'root', '');
 $stmt = $db->query("SELECT * FROM usuarios WHERE usuario = '$user'");
-$usuarios = $stmt->fetchObject();
+$usuarios = $stmt->fetch();
 
-$prod_user = $usuarios->id;
-$stmt1 = $db->query("SELECT * FROM carrito WHERE idusuario = '$prod_user'");
-$prod_carrito = $stmt1->fetchAll();
+$iduser=$usuarios["id"];
 
-$array = array();
-foreach($prod_carrito as $pc){
-    array_push($array, $pc["idproducto"]);
-}
+$stmt1 = $db->query("SELECT * FROM carrito INNER JOIN productos ON carrito.idproducto = productos.id_producto WHERE idusuario = '$iduser'");
+$carrito = $stmt1->fetchAll();
 
-$stmt = $db->query("SELECT * FROM productos WHERE (id_producto='$array[0]') ORDER BY id_producto DESC");
-$productos = $stmt->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -41,7 +35,7 @@ $productos = $stmt->fetchAll();
         <section id="izq">
             <h3>Carrito de compras</h3>
 
-
+            <?php foreach($carrito as $c){ ?>
             <div class="prod_carrito">
                 <div class="desc_prod">
                     <div class="imag_prod">
@@ -49,7 +43,7 @@ $productos = $stmt->fetchAll();
                     </div>
                     <div class="datos_prod">
                         <div class="nombre_prod">
-
+                            <?php echo $c["nombre"]; ?>
                         </div>
                         <div class="extra_prod">
                             <div class="precio_prod">
@@ -69,7 +63,7 @@ $productos = $stmt->fetchAll();
 
                 </div>
             </div>
-
+            <?php } ?>
         </section>
         <section id="der">
 

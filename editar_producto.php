@@ -50,7 +50,7 @@ $productos = $stmt->fetchObject();
                 </div>
                 <div class="form-group">
                     Descripción:
-                    <textarea class="form-control" name="descripcion" rows="10" ><?php echo nl2br($productos->descripcion) ?></textarea>
+                    <textarea class="form-control" name="descripcion" rows="10" ><?php echo ($productos->descripcion) ?></textarea>
                     
                 </div>
             </div>

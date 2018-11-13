@@ -41,7 +41,7 @@ if(isset($_SESSION['usuario'])){
                 <h1>Disfruta de todos nuestros productos</h1>
             </section>
 
-            <?php if(isset($_SESSION["usuario"])) { if(($usuarios->tipo)=="administrador"){ ?>
+            <?php if(isset($_SESSION["usuario"])) { if(($usuarios["tipo"])=="administrador"){ ?>
                     <div id = "botones">
                         <form action="agregar_prod.php">
                             <button type="submit" class="btn btn-success" data-dismiss="modal">Agregar nuevo producto</button>

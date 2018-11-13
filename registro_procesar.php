@@ -17,15 +17,13 @@ $user = $stmt->fetchAll();
 if(count($user) == 0){
     $password = sha1($password);//sirve para encriptar a la variable 'password'
     
-    $stmt = $db->query("INSERT INTO usuarios VALUES (NULL, '$nombres', '$apellidos', '$usuario', '$correo', '$password')");
+    $stmt = $db->query("INSERT INTO usuarios VALUES (NULL, '$nombres', '$apellidos', '$usuario', '$correo', '$password', 'usuario')");
     session_start();
     $_SESSION["usuario"]=$usuario;
 
-    #Salida
-
     header("Location: registro_confirmar.php");
 }else{
-    echo count($user);
+
     header("Location: registro.php?error=0");
 }
 
