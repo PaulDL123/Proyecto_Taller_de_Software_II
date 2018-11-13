@@ -4,7 +4,7 @@ if(isset($_SESSION['usuario'])){
     $db = new PDO('mysql:host=localhost;dbname=proyecto_taller_software; charset=utf8mb4', 'root', '');
     $stmt = $db->query("SELECT * FROM usuarios WHERE usuario = '$user'");
     $usuarios = $stmt->fetchObject();
-
+    $user_tipo = $usuarios->tipo;
 }
 ?>
 <section id="contenedor_login">
@@ -13,7 +13,7 @@ if(isset($_SESSION['usuario'])){
     <ul id="cabecera">
         <li>Bienvenido <?php echo $_SESSION["usuario"] ?></li>
         <li><a href="perfil.php">Mi Perfil</a></li>
-        <?php if(($usuarios->tipo)=="usuario"){?>
+        <?php if($user_tipo =="usuario"){?>
         <li><a href="carrito.php">Mi carrito</a></li>
         <?php } ?>
     </ul>

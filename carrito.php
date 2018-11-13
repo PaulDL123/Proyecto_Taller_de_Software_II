@@ -16,6 +16,8 @@ foreach($prod_carrito as $pc){
     array_push($array, $pc["idproducto"]);
 }
 
+$stmt = $db->query("SELECT * FROM productos WHERE (id_producto='$array[0]') ORDER BY id_producto DESC");
+$productos = $stmt->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -38,7 +40,6 @@ foreach($prod_carrito as $pc){
     <section id="contenedor_padre">
         <section id="izq">
             <h3>Carrito de compras</h3>
-            <?php echo count($prod_carrito); ?>
 
 
             <div class="prod_carrito">

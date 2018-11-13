@@ -47,7 +47,7 @@ $productos = $stmt->fetchAll();
             <td style="text-align: center" style="display: flex;">
                 <form action="eliminar_producto.php" method="post">
                     <input type="hidden" name="id_producto" value="<?php echo $u["id_producto"] ?>">
-                    <button type="submit">Borrar</button>
+                    <button type="submit" class="btn btn-primary">Borrar</button>
                 </form>
 
             </td>
