@@ -19,29 +19,29 @@ session_start();
     <?php } ?>
     <?php include('partes/header.php') ?>
     <?php include('partes/navegador.php') ?>
-
-    <form action="agregar_procesar.php" method="post" enctype="multipart/form-data">
-        <div>
-            Nombre:
-            <input type="text" name="nombre">
-        </div>
-        <div>
-            Precio:
-            <input type="float" name="precio">
-        </div>
-        <div>
-            Descripción:
-            <textarea name="descripcion" cols="30" rows="10"></textarea>
-        </div>
-        <div>
-            Imagen:
-            <input type="file" name="img" accept="image/*">
-        </div>
-        <div>
-            <button type="submit">Enviar</button>
-        </div>
-    </form>
-
+    <section id="contenedor_padre">
+        <form action="agregar_procesar.php" method="post" enctype="multipart/form-data">
+            <div>
+                Nombre:
+                <input type="text" name="nombre">
+            </div>
+            <div>
+                Precio:
+                <input type="float" name="precio">
+            </div>
+            <div>
+                Descripción:
+                <textarea name="descripcion" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                Imagen:
+                <input type="file" name="img" accept="image/*">
+            </div>
+            <div>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </section>
     <?php include('partes/footer.php') ?>
 </body>
 </html>

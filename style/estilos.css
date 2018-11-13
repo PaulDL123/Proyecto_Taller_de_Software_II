@@ -28,3 +28,10 @@ nav ul li a{
     text-decoration: none;
     font-weight: bold;
 }
+a:hover{
+    color: #7C5219;
+}
+#contenedor_padre{
+    width: 80%;
+    margin: 0 10%;
+}

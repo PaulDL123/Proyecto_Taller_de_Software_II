@@ -12,6 +12,7 @@ session_start();
     <title>Inicio</title>
     <?php include'links.html'; ?>
     <link rel="stylesheet" href="style/perfil.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body>
     <?php include('login.php') ?>
@@ -21,7 +22,7 @@ session_start();
 
     <?php include('partes/navegador.php'); ?>
 
-    <section>
+    <section id="contenedor_padre">
         <section id="izq">
             <h5>MI CUENTA</h5>
             <div>

@@ -4,7 +4,7 @@
     <ul id="cabecera">
         <li>Bienvenido <?php echo $_SESSION["usuario"] ?></li>
         <li><a href="perfil.php">Mi Perfil</a></li>
-        <li><a href="pedidos_usuario.php">Mis Pedidos</a></li>
+        <li><a href="carrito.php">Mi carrito</a></li>
     </ul>
     
     <?php } else { ?>

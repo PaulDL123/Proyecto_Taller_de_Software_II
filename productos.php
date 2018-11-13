@@ -15,6 +15,7 @@ $productos = $stmt->fetchAll();
     <title>Productos</title>
     <?php include'links.html' ?>
     <link rel="stylesheet" href="style/productos.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body>
     
@@ -27,7 +28,7 @@ $productos = $stmt->fetchAll();
     <?php include('partes/navegador.php') ?>
 
 
-    <section>
+    <section id="contenedor_padre">
 
         <section id="filtros">
             <p></p>
@@ -57,7 +58,7 @@ $productos = $stmt->fetchAll();
                         <div>
                             <img src="data:image/jpg;base64,<?php echo base64_encode($p["imagen"]);?>" >
                         </div>
-                        <div id="desc">
+                        <div id="nombre">
                             <span><?php echo $p["nombre"] ?></span>
                         </div>
                         <div id="precio">

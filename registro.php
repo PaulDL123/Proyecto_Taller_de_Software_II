@@ -11,6 +11,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registro</title>
     <?php include'links.html' ?>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body>
     
@@ -22,33 +23,34 @@ session_start();
     
     <?php include('partes/header.php') ?>
     <?php include('partes/navegador.php') ?>
-
-    <h1>Formulario de registro de usuario</h1>
-    <form action="registro_procesar.php" method="post">
-        <div>
-            Nombres: <br>
-            <input type="text" name="nombres" required>
-        </div>
-        <div>
-            Apellidos: <br>
-            <input type="text" name="apellidos" required>
-        </div>
-        <div>
-            Usuario: <br>
-            <input type="text" name="usuario" required>
-        </div>
-        <div>
-            Correo: <br>
-            <input type="email" name="email" required>
-        </div>    
-        <div>
-            Contraseña: <br>
-            <input type="password" name="password" required>
-        </div>
-        <div>
-            <button type="submit">Enviar</button>
-        </div>
-    </form>
+    <section id="contenedor_padre">
+        <h1>Formulario de registro de usuario</h1>
+        <form action="registro_procesar.php" method="post">
+            <div>
+                Nombres: <br>
+                <input type="text" name="nombres" required>
+            </div>
+            <div>
+                Apellidos: <br>
+                <input type="text" name="apellidos" required>
+            </div>
+            <div>
+                Usuario: <br>
+                <input type="text" name="usuario" required>
+            </div>
+            <div>
+                Correo: <br>
+                <input type="email" name="email" required>
+            </div>    
+            <div>
+                Contraseña: <br>
+                <input type="password" name="password" required>
+            </div>
+            <div>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </section>
     <?php include('partes/footer.php') ?>
 </body>
 </html>
