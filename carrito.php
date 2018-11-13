@@ -11,6 +11,11 @@ $prod_user = $usuarios->id;
 $stmt1 = $db->query("SELECT * FROM carrito WHERE idusuario = '$prod_user'");
 $prod_carrito = $stmt1->fetchAll();
 
+$array = array();
+foreach($prod_carrito as $pc){
+    array_push($array, $pc["idproducto"]);
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -33,13 +38,13 @@ $prod_carrito = $stmt1->fetchAll();
     <section id="contenedor_padre">
         <section id="izq">
             <h3>Carrito de compras</h3>
+            <?php echo count($prod_carrito); ?>
 
-            <?php foreach($prod_carrito as $pc){ ?>
 
             <div class="prod_carrito">
                 <div class="desc_prod">
                     <div class="imag_prod">
-                        <img src="data:image/jpg;base64,<?php echo base64_encode($pc["imagen"]);?>">
+                        <img src="">
                     </div>
                     <div class="datos_prod">
                         <div class="nombre_prod">
@@ -64,7 +69,6 @@ $prod_carrito = $stmt1->fetchAll();
                 </div>
             </div>
 
-            <?php } ?>
         </section>
         <section id="der">
 

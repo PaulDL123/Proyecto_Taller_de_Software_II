@@ -24,8 +24,8 @@ session_start();
     <section style="width: 70%; margin: 20px 15%; text-align:justify;">
         <h1>Nosotros</h1>
 
-        <p>Fundada en el año 1969 y dedicada a la producción de muebles de madera, nos hemos convertido rápidamente en la principal proveedora de muebles para las más importantes cadenas de tiendas por departamentos del país.</p>
-        <p>Hoy en día, casi cinco décadas después, nuestra empresa es líder en la producción de puertas, muebles de baño y closets para lo cual contamos con una fábrica moderna con maquinarias de vanguardia que permiten lograr como resultado, productos de altísima calidad, logrando satisfacer no solo importantes clientes inmobiliarios del país sino también del extranjero.</p>
+        <p>Somos una empresa dedicada a la producción de muebles de madera, nos hemos convertido rápidamente en la principal proveedora de muebles para las más importantes cadenas de tiendas por departamentos del país.</p>
+        <p>Hoy en día, nuestra empresa es líder en la producción de puertas, muebles de baño y closets para lo cual contamos con una fábrica moderna con maquinarias de vanguardia que permiten lograr como resultado, productos de altísima calidad, logrando satisfacer no solo importantes clientes inmobiliarios del país sino también del extranjero.</p>
         
         <h1>Nuestros servicios</h1>
         

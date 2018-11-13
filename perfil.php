@@ -43,7 +43,8 @@ $usuarios = $stmt->fetchObject();
         <section id="der">
             <h1>MIS DATOS PERSONALES</h1>
             <div>
-                <form action="">
+                <form action="actualizar_perfil.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo "$usuarios->id" ?>">
                     <div class="form-group">
                         Nombres: <br>
                         <input class="form-control" type="text" name="nombres" value="<?php echo "$usuarios->nombres" ?>" required>

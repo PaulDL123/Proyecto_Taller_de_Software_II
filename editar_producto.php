@@ -18,6 +18,7 @@ $productos = $stmt->fetchObject();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inicio</title>
     <?php include'links.html' ?>
+    <link rel="stylesheet" href="style/editar_producto.css">
     <link rel="stylesheet" href="style/prod_unidad.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
@@ -30,71 +31,34 @@ $productos = $stmt->fetchObject();
         
     <?php include('partes/navegador.php') ?>
 
-    <section id="contenedor_padre">
+    <section id="contenedor_padre" style="padding-top:40px;">
 
-        <section id="prod">
-
-            <div id="nombre">
-                <h1><?php echo $productos->nombre; ?></h1>
+        <form action="actualizar_producto.php?id=<?php echo $id;?>" method="post" enctype="multipart/form-data">
+            <div id="der">
+                <div class="form-group" style="height:400px">
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($productos->imagen);?>" style="width:300px; height:300px">
+                </div>
             </div>
-                
-            <section id="down">
-            
-                <div id="imagen">
-                    <input name="file-input" id="file-input" type="file" />
-                    <br />
-                    <img id="imgSalida" src="data:image/jpg;base64,<?php echo base64_encode($productos->imagen);?>" />
+            <div id="izq">
+                <div class="form-group">
+                    Nombre:
+                    <input class="form-control" type="text" name="nombre" value="<?php echo "$productos->nombre" ?>">
                 </div>
-                <div id="info">
-                    <div id="desc">
-                        <span><?php echo "$productos->descripcion" ?></span>
-                    </div>
-                    <div id="precio">
-                        <span id="precio1">desde</span>
-                        <span id="precio2">S/ <?php echo "$productos->precio" ?></span>
-                        <form action="carrito_procesar.php" method="post">
-                            <input type="hidden" name="id_usuario" value="<?php echo "$usuario_mostrar" ?>">
-                            <input type="hidden" name="id_producto" value="<?php echo $id ?>">
-
-                            <?php if(isset($_SESSION['usuario'])) {?>
-                            <a href="#decision" class="btn btn-primary btn-lg" data-toggle="modal">AGREGAR A CARRITO</a> 
-                            <?php }else{ ?>
-                            <a href="#registrarse" class="btn btn-primary btn-lg" data-toggle="modal">AGREGAR A CARRITO</a> 
-                            <?php } ?>
-
-                        </form>         
-                    </div>
+                <div class="form-group">
+                    Precio:
+                    <input class="form-control" type="float" name="precio" value="<?php echo "$productos->precio" ?>">
                 </div>
-
-            </section>
-        </section>
+                <div class="form-group">
+                    Descripción:
+                    <textarea class="form-control" name="descripcion" rows="10" ><?php echo nl2br($productos->descripcion) ?></textarea>
+                    
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Guardar datos</button>
+            </div>
+        </form>
     </section>
     <?php include('partes/footer.php') ?>
-    <script>
-        $(window).load(function(){
-            $(function() {
-                $('#file-input').change(function(e) {
-                    addImage(e); 
-                    });
-
-                    function addImage(e){
-                    var file = e.target.files[0],
-                    imageType = /image.*/;
-                
-                    if (!file.type.match(imageType))
-                    return;
-                
-                    var reader = new FileReader();
-                    reader.onload = fileOnload;
-                    reader.readAsDataURL(file);
-                    }
-                
-                    function fileOnload(e) {
-                    var result=e.target.result;
-                    $('#imgSalida').attr("src",result);
-                    }
-            });
-        });
-    </script>
 </body>
 </html>

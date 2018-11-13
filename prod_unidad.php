@@ -13,6 +13,7 @@ if(isset($_SESSION['usuario'])){
     $stmt = $db->query("SELECT * FROM usuarios WHERE usuario = '$user'");
     $usuarios = $stmt->fetchObject();
     $usuario_mostrar = $usuarios->id;
+    $usuario_tipo = $usuarios->tipo;
 }else{
     $usuario_mostrar = "desconocido";
 }
@@ -87,11 +88,20 @@ $c = count($partes);
                     </div>
                     <!-- Contenido de la ventana -->
                     <div class="modal-body">
-                        registrarse
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <span></span>
+                        <form action="carrito_procesar.php" method="post">
+                            <input type="hidden" name="decision" value="carrito.php">
+                            <input type="hidden" name="id_usuario" value="<?php echo "$usuario_mostrar" ?>">
+                            <input type="hidden" name="id_producto" value="<?php echo $id ?>">
+                            <button type="submit" class="btn btn-default" >Ver elemento en carrito</button>
+                        </form>
+                        <form action="carrito_procesar.php" method="post">
+                            <input type="hidden" name="decision" value="productos.php">
+                            <input type="hidden" name="id_usuario" value="<?php echo "$usuario_mostrar" ?>">
+                            <input type="hidden" name="id_producto" value="<?php echo $id ?>">
+                            <button type="submit" class="btn btn-primary">Seguir comprando</button>    
+                        </form>
+                        
                     </div>
                 </div>
             </div>
@@ -111,22 +121,23 @@ $c = count($partes);
                 </div>
                 <div id="info">
                     <div id="desc">
-                        <span><?php echo "$productos->descripcion" ?></span>
+                        <span><?php echo nl2br($productos->descripcion) ?></span>
                     </div>
                     <div id="precio">
                         <span id="precio1">desde</span>
                         <span id="precio2">S/ <?php echo "$productos->precio" ?></span>
-                        <form action="carrito_procesar.php" method="post">
-                            <input type="hidden" name="id_usuario" value="<?php echo "$usuario_mostrar" ?>">
-                            <input type="hidden" name="id_producto" value="<?php echo $id ?>">
-
-                            <?php if(isset($_SESSION['usuario'])) {?>
-                            <a href="#decision" class="btn btn-primary btn-lg" data-toggle="modal">AGREGAR A CARRITO</a> 
+                        
+                        <?php if(isset($_SESSION['usuario'])) { ?>
+                            <?php if($usuario_tipo=="administrador"){ ?>
+                            <a href="editar_producto.php?id=<?php echo $productos->id_producto;?>" class="btn btn-primary btn-lg" >EDITAR PRODUCTO</a> 
                             <?php }else{ ?>
-                            <a href="#registrarse" class="btn btn-primary btn-lg" data-toggle="modal">AGREGAR A CARRITO</a> 
+                            <a href="#decision" class="btn btn-primary btn-lg" data-toggle="modal">AGREGAR A CARRITO</a> 
                             <?php } ?>
+                        <?php }else{ ?>
+                        <a href="#registrarse" class="btn btn-primary btn-lg" data-toggle="modal">AGREGAR A CARRITO</a> 
+                        <?php } ?>
 
-                        </form>         
+                                 
                     </div>
                 </div>
 
