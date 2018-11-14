@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2018 a las 22:17:07
+-- Tiempo de generación: 14-11-2018 a las 15:10:10
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.10
 
@@ -32,16 +32,9 @@ CREATE TABLE `carrito` (
   `id_carrito` int(11) NOT NULL,
   `idusuario` int(11) NOT NULL,
   `idproducto` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL DEFAULT '1'
+  `cantidad` int(11) NOT NULL DEFAULT '1',
+  `pedido` char(2) NOT NULL DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `carrito`
---
-
-INSERT INTO `carrito` (`id_carrito`, `idusuario`, `idproducto`, `cantidad`) VALUES
-(1, 5, 10, 1),
-(2, 5, 11, 1);
 
 -- --------------------------------------------------------
 
@@ -58,6 +51,17 @@ CREATE TABLE `direcciones` (
   `urbanización` varchar(100) NOT NULL,
   `referencia` varchar(100) NOT NULL,
   `distrito` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `direcciones_usuario`
+--
+
+CREATE TABLE `direcciones_usuario` (
+  `id_direccion` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -104,18 +108,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombres`, `apellidos`, `usuario`, `correo`, `password`, `tipo`) VALUES
 (2, 'chevere', 'like', 'Paul1', 'pauldk95@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'administrador'),
-(5, 'Paul', 'Diaz', 'admin', 'paul_29diaz@hotmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'usuario');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuario_direccion`
---
-
-CREATE TABLE `usuario_direccion` (
-  `id_usuario` int(11) NOT NULL,
-  `id_direccion` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(7, 'Anghie', 'Diaz', 'Anghiexd', 'paul_29diaz@hotmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'usuario');
 
 --
 -- Índices para tablas volcadas
@@ -134,6 +127,12 @@ ALTER TABLE `direcciones`
   ADD PRIMARY KEY (`id_direccion`);
 
 --
+-- Indices de la tabla `direcciones_usuario`
+--
+ALTER TABLE `direcciones_usuario`
+  ADD PRIMARY KEY (`id_direccion`,`id_usuario`);
+
+--
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -146,12 +145,6 @@ ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `usuario_direccion`
---
-ALTER TABLE `usuario_direccion`
-  ADD PRIMARY KEY (`id_usuario`,`id_direccion`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -159,13 +152,13 @@ ALTER TABLE `usuario_direccion`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `direcciones`
 --
 ALTER TABLE `direcciones`
-  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -177,7 +170,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
