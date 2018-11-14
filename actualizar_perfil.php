@@ -10,7 +10,8 @@ $email = $_POST["email"];
 
 $db = new PDO('mysql:host=localhost;dbname=proyecto_taller_software; charset=utf8mb4', 'root', '');
 $stmt = $db->query("UPDATE usuarios SET nombres='$nombres', apellidos='$apellidos', usuario='$usuario', correo='$email' WHERE id = '$id'");
-
+session_start();
+$_SESSION["usuario"]=$usuario;
 #Salida
 
-header("Location:logout.php");
+header("Location:index.php");
