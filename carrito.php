@@ -9,9 +9,13 @@ $usuarios = $stmt->fetch();
 
 $iduser=$usuarios["id"];
 
-$stmt1 = $db->query("SELECT * FROM carrito INNER JOIN productos ON carrito.idproducto = productos.id_producto WHERE idusuario = '$iduser'");
+$stmt1 = $db->query("SELECT * FROM carrito INNER JOIN productos ON carrito.idproducto = productos.id_producto WHERE idusuario = '$iduser' AND pedido='no'");
 $carrito = $stmt1->fetchAll();
 
+$suma=0;
+foreach($carrito as $ca){
+    $suma=$suma+($ca["precio"]*$ca["cantidad"]);
+}
 
 ?>
 <!DOCTYPE html>
@@ -22,51 +26,66 @@ $carrito = $stmt1->fetchAll();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inicio</title>
     <?php include'links.html' ?>
+    <link rel="stylesheet" href="style/carrito.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body>
     <?php include('login.php') ?>
-    <?php if(!isset($_SESSION["usuario"])) { if(isset($_GET["error"])) { ?>
-    <p style="color: red; background-color: black; margin:0; text-align: right; padding: 0 350px;">Error, datos no válidos</p>
-    <?php } }?>
-    
+        
     <?php include('partes/navegador.php') ?>
     <section id="contenedor_padre">
         <section id="izq">
             <h3>Carrito de compras</h3>
 
-            <?php foreach($carrito as $c){ ?>
-            <div class="prod_carrito">
-                <div class="desc_prod">
-                    <div class="imag_prod">
-                        <img src="">
-                    </div>
-                    <div class="datos_prod">
-                        <div class="nombre_prod">
-                            <?php echo $c["nombre"]; ?>
-                        </div>
-                        <div class="extra_prod">
-                            <div class="precio_prod">
+            <table class="table" style="width: 80%; border-collapse: collapse; margin:10px 20%; text-align:center;">
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                </tr>
 
-                            </div>
-                            <div class="comentario">
-
-                            </div>
-                            <div class="cantidad">
-
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="precio">
-
-                </div>
-            </div>
-            <?php } ?>
+                <?php if(count($carrito) == 0) { ?>
+                    <tr>
+                        <td colspan="5" style="text-align: center">No se encontraron registros</td>
+                    </tr>
+                <?php } ?>
+                <tr>
+                <?php foreach ($carrito as $c) { ?>
+                    <td><img src="data:image/jpg;base64,<?php echo base64_encode($c["imagen"])?>" style =" width:200px"></td>
+                    <td><?php echo $c["nombre"] ?></td>
+                    <td><?php echo $c["precio"] ?></td>
+                    <td style="text-align: center" style="display: flex;">
+                        <form action="eliminar_producto.php" method="post">
+                            <input type="hidden" name="id_producto" value="<?php echo $c["id_carrito"] ?>">
+                            <input type="hidden" name="vuelta" value="2">
+                            <button type="submit" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </form>
+                        <select name="cantidad" class="form-control" style="width:80%;" >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </td>
+                </tr>
+                <?php } ?>
+            </table>
         </section>
         <section id="der">
-
+            <h4>Resumen de pedido:</h4>
+            <div>
+                <span>Sub-total:</span>
+                <span id="precio"><?php echo $suma ?></span>
+            </div>
+            <div>
+                <?php if(count($carrito) <> 0) { ?>
+                <form action="pedidos_procesar.php">
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                </form>
+                <?php } ?>
+                
+            </div>
         </section>
     </section>
     

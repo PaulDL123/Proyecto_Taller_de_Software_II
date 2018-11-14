@@ -25,9 +25,6 @@ $productos = $stmt->fetchObject();
 <body>
 
     <?php include('login.php') ?>
-    <?php if(!isset($_SESSION["usuario"])) { if($partes['1']=="error=1" || $partes['1']=="error=1") { ?>
-    <p style="color: red; background-color: black; margin:0; text-align: right; padding: 0 350px;">Error, datos no válidos</p>
-    <?php }} ?>
         
     <?php include('partes/navegador.php') ?>
 

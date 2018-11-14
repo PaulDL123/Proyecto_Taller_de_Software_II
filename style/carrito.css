@@ -1,0 +1,18 @@
+#izq{
+    float: left;
+    width: 80%;
+}
+#der{
+    margin-left: 81%;
+}
+.prod_carrito{
+    display: table;
+    width: 100%;
+}
+.imag_prod{
+    float:left;
+    width: 30%;
+}
+.datos_prod{
+    margin-left: 31%;
+}

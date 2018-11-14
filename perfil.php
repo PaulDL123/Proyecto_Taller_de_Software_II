@@ -36,7 +36,9 @@ $usuarios = $stmt->fetch();
                 <span>Mi perfil</span>
                 <ul>
                     <li><a href="perfil.php">Mis datos personales</a></li>
+                    <?php if($usuarios["tipo"]=="usuario"){ ?>
                     <li><a href="direcciones.php">Mis direcciones</a></li>
+                    <?php } ?>
                 </ul>
             </div>
         </section>

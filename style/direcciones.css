@@ -1,0 +1,18 @@
+.direccion{
+    width: 20%;
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid green;
+    border-radius: 7px;
+}
+#contenedor_dir{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+#precio{
+    color: #ea2840;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "Helvetica Neue","Segoe UI",Lucida,Arial,sans-serif;
+}

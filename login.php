@@ -15,6 +15,7 @@ if(isset($_SESSION['usuario'])){
         <li><a href="perfil.php">Mi Perfil</a></li>
         <?php if( $user_tipo =="usuario"){?>
         <li><a href="carrito.php">Mi carrito</a></li>
+        <li><a href="pedidos.php">Mis órdenes</a></li>
         <?php }else{ ?>
         <li>Administrador</li>
         <?php } ?>

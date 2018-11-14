@@ -16,12 +16,10 @@ session_start();
 <body>
     
     <?php include('login.php') ?>
-    <?php if(isset($_GET["error"])) { ?>
+    <?php if(!isset($_SESSION["usuario"])) { if(isset($_GET["error"])) { ?>
     <p style="color: red; background-color: black; margin:0; text-align: right; padding: 0 350px;">Error, datos no válidos</p>
-    <?php } ?>
-
+    <?php } }?>
     
-
     <?php include('partes/navegador.php') ?>
     <section id="contenedor_padre">
         <h1>Formulario de registro de usuario</h1>
